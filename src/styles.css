@@ -1,0 +1,33 @@
+.grid {
+  margin: 0 auto;
+  width: 640px;
+  height: 640px;
+  display: grid;
+  grid-template-columns: repeat(10, 0fr);
+}
+.grid .cell {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: white;
+
+  border: 1px solid blue;
+  height: 60px;
+  width: 60px;
+}
+
+.cell.owned {
+  background: black;
+}
+.cell.owned.marked {
+  background: red;
+}
+
+.cell.marked {
+  background: rgb(129, 129, 129);
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
