@@ -1,27 +1,48 @@
-import * as React from "react";
-import * as classNames from "classnames";
+import { default as cx } from "classnames";
+import * as _ from "lodash";
 import { observer } from "mobx-react";
+import * as React from "react";
 import { ICell } from "../store/models/grid";
-
-const cx = classNames.default;
 
 interface IProps {
   cellData: ICell;
+  shipsVisible: boolean;
+  clickable: boolean;
+  handleCellClick?: (y: number, x: number) => void;
 }
-class CellElement extends React.Component<IProps, any> {
-  render() {
-    const { cellData } = this.props;
-    console.log(this.props);
-    return (
-      <div
-        onClick={() => cellData.markCell()}
-        className={cx.call(null, "cell", {
-          owned: !cellData.isEmpty,
-          marked: cellData.marked
-        })}
-      />
-    );
-  }
+
+function CellElement({
+  cellData,
+  clickable = true,
+  shipsVisible,
+  handleCellClick
+}: IProps) {
+  const owned = cellData.marked
+    ? !cellData.isEmpty
+    : !cellData.isEmpty && shipsVisible;
+  return (
+    <div
+      onClick={
+        clickable
+          ? () => {
+              cellData.markCell();
+              if (handleCellClick) {
+                handleCellClick(cellData.x, cellData.y);
+              }
+            }
+          : _.noop
+      }
+      className={cx.call(null, "cell", {
+        owned,
+        marked: cellData.marked
+      })}
+    />
+  );
 }
+
+CellElement.defaultProps = {
+  shipsVisible: true,
+  clickable: true
+};
 
 export default observer(CellElement);

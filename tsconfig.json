@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "target": "es5",                          
-    "module": "es2015",                    
+    "target": "es5",
+    "module": "es2015",
     "strict": true,
-    "moduleResolution": "node"    
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "inlineSourceMap": true
   }
 }

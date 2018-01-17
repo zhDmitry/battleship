@@ -1,14 +1,12 @@
 import * as React from "react";
-import * as classNames from "classnames";
 
-class GameOver extends React.Component<any, any> {
-  render() {
-    return (
-      <div>
-        <h1>Game Over</h1>
-      </div>
-    );
-  }
+function GameOver({ winner }) {
+  return (
+    <div>
+      <h1>Game Over</h1>
+      <h3>{winner} win</h3>
+    </div>
+  );
 }
 
 export default GameOver;

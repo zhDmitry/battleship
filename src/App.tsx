@@ -1,19 +1,11 @@
+import { observer, Provider } from "mobx-react";
 import * as React from "react";
 import * as ReactDom from "react-dom";
-import { observer, Provider } from "mobx-react";
-import { store } from "./store";
 import Grid from "./containers/Grid";
+import { store } from "./store";
 
-class AppStateType {}
-
-class AppPropsType {}
-
-export default class App extends React.Component<AppPropsType, AppStateType> {
-  componentDidMount() {
-    console.log("render", ReactDom.findDOMNode(this));
-  }
-
-  render() {
+export default class App extends React.Component<any, any> {
+  public render() {
     return (
       <Provider store={store}>
         <div>

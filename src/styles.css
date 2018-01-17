@@ -1,7 +1,6 @@
 .grid {
   margin: 0 auto;
-  width: 640px;
-  height: 640px;
+  margin: 20px;
   display: grid;
   grid-template-columns: repeat(10, 0fr);
 }
@@ -12,8 +11,12 @@
   background: white;
 
   border: 1px solid blue;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
+}
+
+.title {
+  width: 100%;
 }
 
 .cell.owned {
@@ -27,7 +30,12 @@
   background: rgb(129, 129, 129);
 }
 
-.centered {
+.flex-center {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+.title {
+  text-align: center;
 }

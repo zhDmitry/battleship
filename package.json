@@ -6,8 +6,7 @@
   "homepage": "https://zhDmitry.github.io/battleship",
   "scripts": {
     "start": "parcel index.html",
-    "build":
-      "cross-env NODE_ENV=production parcel build index.html --public-url ./",
+    "build": "cross-env NODE_ENV=production parcel build index.html --public-url ./",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
@@ -22,12 +21,15 @@
     "mobx-react": "^4.3.5",
     "mobx-state-tree": "^1.3.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.4.2",
+    "tslint-config-prettier": "^1.6.0"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0",
-    "cross-env": "^5.1.3",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.3",
+    "gh-pages": "^1.1.0",
     "parcel-bundler": "^1.0.3",
     "typescript": "^2.6.2"
   }

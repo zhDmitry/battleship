@@ -1,26 +1,37 @@
-import * as React from "react";
 import { observer } from "mobx-react";
+import * as React from "react";
 
+import { ICell, IGrid } from "../store/models/grid";
 import Cell from "./Cell";
-import { ICell } from "../store/models/grid";
 
-class Grid extends React.Component<any, any> {
-  render() {
-    const { elements } = this.props;
-    return (
-      <div className="grid">
-        {elements.map(nestedElements => {
-          return (
-            <div>
-              {nestedElements.map((el: ICell, i: number) => {
-                return <Cell key={i} cellData={el} />;
-              })}
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
+interface IProps {
+  gridData: IGrid;
+  clickable: boolean;
+  shipsVisible: boolean;
+  handleCellClick?: (x: number, y: number) => void;
 }
 
+function Grid({ gridData, clickable, shipsVisible, handleCellClick }: IProps) {
+  return (
+    <div>
+      <h4 className="title">Ships available: {gridData.availableShips}</h4>
+
+      <div className="grid">
+        {gridData.elements.map((nestedElements, l: number) => (
+          <div key={l}>
+            {nestedElements.map((el: ICell, i: number) => (
+              <Cell
+                key={i}
+                cellData={el}
+                handleCellClick={handleCellClick}
+                clickable={clickable}
+                shipsVisible={shipsVisible}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 export default observer(Grid);
