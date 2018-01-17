@@ -15,7 +15,6 @@ function Grid({ gridData, clickable, shipsVisible, handleCellClick }: IProps) {
   return (
     <div>
       <h4 className="title">Ships available: {gridData.availableShips}</h4>
-
       <div className="grid">
         {gridData.elements.map((nestedElements, l: number) => (
           <div key={l}>

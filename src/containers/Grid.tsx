@@ -9,7 +9,10 @@ import { Ship, ShipCell } from "../store/models/ship";
 
 class GridContainer extends React.Component<{ store: IStore }, any> {
   public handleCellClick = (x: number, y: number) => {
-    const { grid } = this.props.store;
+    const { grid, opponentGrid } = this.props.store;
+    if (opponentGrid.elements[x][y].marked) {
+      return;
+    }
     const targetCell = _.shuffle(grid.availableCells)[0];
     grid.markCell(targetCell.x, targetCell.y);
   };

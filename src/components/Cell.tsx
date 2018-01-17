@@ -25,10 +25,10 @@ function CellElement({
       onClick={
         clickable
           ? () => {
-              cellData.markCell();
               if (handleCellClick) {
                 handleCellClick(cellData.x, cellData.y);
               }
+              cellData.markCell();
             }
           : _.noop
       }
